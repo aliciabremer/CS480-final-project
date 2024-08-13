@@ -298,7 +298,7 @@ if __name__ == '__main__':
     # rate and learning rate scheduler based on learning rate after unfreezing
     # the base model weights
     del model,base_model
-    model = torch.load(f'results_during_training/{args.type}_seed{args.seed}_model_epoch{min_val_loss_epoch}.pth').to(device)
+    model = torch.load(f'results_during_training/{args.type}_seed{args.seed}_model_epoch{min_val_loss_epoch+1}.pth').to(device)
     model.base_model = model.base_model.to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=ALL_LR, weight_decay=ALL_LRDECAY)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=args.lr_sched, gamma=0.1)
