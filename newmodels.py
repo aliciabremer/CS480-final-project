@@ -65,13 +65,13 @@ class TransferSWINBatch(nn.Module):
         self.base_model.head = nn.Identity()
 
         self.fc_extra1 = nn.Linear(extra_features, 1024)
-        self.fc_extra2 = nn.Linear(1024, 1024) # changed this
+        self.fc_extra2 = nn.Linear(1024, 1024)
         
         self.dropout1 = nn.Dropout(dropout_features)
         self.batchnorm1 = nn.BatchNorm1d(1024)
-        self.new_bn = nn.LayerNorm((768,))
+        self.new_bn = nn.LayerNorm((1024,))
         
-        self.fc_combined1 = nn.Linear(num_last_layer+768, 1024)
+        self.fc_combined1 = nn.Linear(num_last_layer+1024, 1024)
         self.fc_combined2 = nn.Linear(1024, 512)
         self.fc_combined3 = nn.Linear(512, 256)
         self.fc_combined4 = nn.Linear(256, 6)
