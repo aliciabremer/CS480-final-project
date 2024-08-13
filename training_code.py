@@ -8,7 +8,7 @@ import os
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from dataset import PlantData, PlantDataTest
-from models import TransferDinoBig, TransferSWINBatch
+from newmodels import TransferDinoBig, TransferSWINBatch
 from scipy.stats import zscore
 import torcheval.metrics
 import argparse
